@@ -7,6 +7,7 @@ Define a class Rectangle
 class Rectangle:
     """Represent of a rectangle"""
 
+
     number_of_instances = 0
     '''public counter'''
 
