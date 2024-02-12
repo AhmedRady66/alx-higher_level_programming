@@ -62,7 +62,7 @@ class Rectangle:
         if not self.width or not self.height:
             return ""
         return ((str(self.print_symbol) * self.width + "\n") *
-                 self.height) [:-1]
+                self.height) [:-1]
 
     def __repr__(self):
         """return the rectangle with the character # for developer"""
