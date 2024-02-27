@@ -76,3 +76,8 @@ class Rectangle(Base):
         result = '\n' * self.y + \
                  (' ' * self.x + '#' * self.width + '\n') * self.height
         print(result, end='')
+
+    def __str__(self):
+        """Representation string"""
+        return f"[{type(self).__name__}] ({self.id}) {self.__x}/{self.__y} - "\
+               f"{self.__width}/{self.__height}"
