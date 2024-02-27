@@ -82,12 +82,14 @@ class Rectangle(Base):
         return f"[{type(self).__name__}] ({self.id}) {self.__x}/{self.__y} - "\
                f"{self.__width}/{self.__height}"
 
-    def __update(self, id=None, size=None, x=None, y=None):
+    def __update(self, id=None, width=None, height=None, x=None, y=None):
         """Internal method that updates instance attributes"""
         if id is not None:
             self.id = id
-        if size is not None:
-            self.size = size
+        if width is not None:
+            self.width = width
+        if height is not None:
+            self.height = height
         if x is not None:
             self.x = x
         if y is not None:
