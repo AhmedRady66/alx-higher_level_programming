@@ -1,36 +1,37 @@
 #!/usr/bin/python3
-""" Rectangle class """
+"""Rectangle class"""
 from models.base import Base
 
 
 class Rectangle(Base):
-    """Define class"""
+    """Define Rectangle class"""
+
     def __init__(self, width, height, x=0, y=0, id=None):
-     """Initialize class"""
-     Base.__init__(self, id)
-     self.width = width
-     self.height = height
-     self.x = x
-     self.y = y
+        """Constructor"""
+        super().__init__(id)
+        self.width = width
+        self.height = height
+        self.x = x
+        self.y = y
 
-     @property
-     def width(self):
-         """get width"""
-         return self.__width
+    @property
+    def width(self):
+        """get width of rectangle"""
+        return self.__width
 
-     @width.setter
-     def width(self, value):
-         """set width"""
-         self.__width = value
+    @width.setter
+    def width(self, value):
+        """set width of rectangle"""
+        self.__width = value
 
     @property
     def height(self):
-        """get height"""
+        """get height of rectangle"""
         return self.__height
 
     @height.setter
     def height(self, value):
-        """set height"""
+        """set height of rectangle"""
         self.__height = value
 
     @property
