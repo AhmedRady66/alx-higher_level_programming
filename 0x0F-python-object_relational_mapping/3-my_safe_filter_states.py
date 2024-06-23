@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""List all states where name matches the argument safe from MySQL injections!"""
+"""List all states where name matches
+the argument safe from MySQL injections!"""
 
 import MySQLdb
 from sys import argv
