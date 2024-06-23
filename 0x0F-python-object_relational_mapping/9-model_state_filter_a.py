@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""lists all State objects that contain the letter a from the database hbtn_0e_6_usa"""
+"""lists all State objects that contain the letter a"""
 
 from model_state import Base, State
 from sys import argv
@@ -12,7 +12,8 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
     Base.metadata.create_all(engine)
-    result = session.query(State).order_by(State.id).filter(State.name.like('%a%'))
+    result = session.query(State).order_by(State.id).filter(
+        State.name.like('%a%'))
     for i in result:
         print(f"{i.id}: {i.name}")
     session.close()
