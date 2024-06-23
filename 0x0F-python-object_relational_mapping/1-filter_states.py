@@ -17,7 +17,8 @@ if __name__ == "__main__":
     )
 
     mycursor = script.cursor()
-    mycursor.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY states.id")
+    mycursor.execute("SELECT * FROM states \
+                     WHERE name LIKE 'N%' ORDER BY states.id")
     query = mycursor.fetchall()
     for row in query:
         print(row)
