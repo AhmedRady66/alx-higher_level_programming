@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""List all states with a name start with N"""
+"""List all states"""
 
 import MySQLdb
 from sys import argv
@@ -17,8 +17,10 @@ if __name__ == "__main__":
     )
 
     mycursor = script.cursor()
-    mycursor.execute("SELECT * FROM states \
-                     WHERE states.name LIKE 'N%' ORDER BY states.id")
+    searched = argv[4]
+
+    sql = "SELECT * FROM states WHERE states.name LIKE %s ORDER BY states.id"
+    mycursor.execute(sql, (searched,))
     query = mycursor.fetchall()
     for row in query:
         print(row)
