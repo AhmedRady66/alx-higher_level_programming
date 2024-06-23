@@ -17,10 +17,13 @@ if __name__ == "__main__":
     )
 
     mycursor = db.cursor()
-    mycursor.execute("SELECT cities.name FROM cities JOIN states ON cities.state_id = states.id\
-                     WHERE ")
+    mycursor.execute("SELECT cities.id, cities.name FROM cities\
+                     JOIN states ON cities.state_id = states.id\
+                     WHERE states.name = %s", [argv[4]])
     query = mycursor.fetchall()
+    empty_list = []
     for row in query:
-        print(row)
+        empty_list.append(row[1])
+    print(", ".join(empty_list))
     mycursor.close()
     db.close()
