@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""List all states where name matches the argument safe from MySQL injections!"""
+"""takes in the name of a state as an argument and lists all cities"""
 
 import MySQLdb
 from sys import argv
@@ -17,7 +17,8 @@ if __name__ == "__main__":
     )
 
     mycursor = db.cursor()
-    mycursor.execute("SELECT * FROM states WHERE BINARY name = %s", [argv[4]])
+    mycursor.execute("SELECT cities.name FROM cities JOIN states ON cities.state_id = states.id\
+                     WHERE ")
     query = mycursor.fetchall()
     for row in query:
         print(row)
