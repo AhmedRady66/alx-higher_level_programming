@@ -7,7 +7,7 @@ from sys import argv
 
 if __name__ == "__main__":
 
-    script = MySQLdb.connect(
+    db = MySQLdb.connect(
         host="localhost",
         port=3306,
         user=argv[1],
@@ -16,7 +16,7 @@ if __name__ == "__main__":
         charset="utf8"
     )
 
-    mycursor = script.cursor()
+    mycursor = db.cursor()
 
     sql = "SELECT * FROM states WHERE name LIKE BINARY '{}'".format(argv[4])
     mycursor.execute(sql)
@@ -24,4 +24,4 @@ if __name__ == "__main__":
     for row in query:
         print(row)
     mycursor.close()
-    script.close()
+    db.close()
