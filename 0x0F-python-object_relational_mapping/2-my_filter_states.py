@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""List all states"""
+"""List all states where name matches the argument"""
 
 import MySQLdb
 from sys import argv
@@ -17,10 +17,9 @@ if __name__ == "__main__":
     )
 
     mycursor = script.cursor()
-    searched = argv[4]
 
-    sql = "SELECT * FROM states WHERE states.name LIKE %s ORDER BY states.id"
-    mycursor.execute(sql, (searched,))
+    sql = "SELECT * FROM states WHERE name LIKE BINARY '{}'".format(argv[4])
+    mycursor.execute(sql)
     query = mycursor.fetchall()
     for row in query:
         print(row)
